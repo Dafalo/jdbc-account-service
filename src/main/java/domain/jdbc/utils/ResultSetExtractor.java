@@ -1,4 +1,4 @@
-package domen.jdbc.utils;
+package domain.jdbc.utils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

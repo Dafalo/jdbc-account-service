@@ -1,4 +1,6 @@
-package domen.jdbc;
+package domain.jdbc;
+
+import exception.DataAccessException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -39,17 +41,15 @@ public class JdbcUtils {
 			}
 		}
 	}
-	public static void closeResultSet( ResultSet rs) {
+
+	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
 				rs.close();
-			}
-			catch (SQLException ex) {
-//				logger.trace("Could not close JDBC ResultSet", ex);
-			}
-			catch (Throwable ex) {
-
-//				logger.trace("Unexpected exception on closing JDBC ResultSet", ex);
+			} catch (SQLException ex) {
+				throw new DataAccessException("Could not close JDBC ResultSet", ex);
+			} catch (Throwable ex) {
+				throw new DataAccessException("Unexpected exception on closing JDBC ResultSet", ex);
 			}
 		}
 	}

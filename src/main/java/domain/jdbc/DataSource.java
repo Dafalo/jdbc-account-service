@@ -1,4 +1,4 @@
-package domen.jdbc;
+package domain.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
